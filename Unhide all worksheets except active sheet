@@ -1,0 +1,26 @@
+Sub toggleSheetVis()
+Dim i As Double
+Dim j As Double
+Dim k As Double
+j = 0
+For i = 1 To ActiveWorkbook.Worksheets.Count
+    If i <> ActiveWorkbook.ActiveSheet.Index Then
+        If ActiveWorkbook.Worksheets(i).Visible = True Then
+            j = j + 1
+        End If
+        If j <> ActiveWorkbook.Worksheets.Count - 1 Then
+            For k = 1 To ActiveWorkbook.Worksheets.Count
+              If k <> ActiveWorkbook.ActiveSheet.Index Then
+                ActiveWorkbook.Worksheets(k).Visible = True
+                End If
+            Next k
+        Else
+            For k = 1 To ActiveWorkbook.Worksheets.Count
+              If k <> ActiveWorkbook.ActiveSheet.Index Then
+                ActiveWorkbook.Worksheets(k).Visible = False
+                End If
+            Next k
+        End If
+    End If
+Next i
+End Sub
